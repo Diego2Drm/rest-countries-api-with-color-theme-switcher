@@ -13,7 +13,7 @@ export default {
         //Light Mode
         "Very-Dark-Blue": "#111517", /*(Light Mode Text)*/
         "Dark-Gray": "#858585", /*(Light Mode Input)*/
-        "Very-Light Gray": "#fafafa", /*(Light Mode Background)*/
+        "Very-Light-Gray": "#fafafa", /*(Light Mode Background)*/
         // "White": "#ffffff", /*(Light Mode Top Background)*/
       },
       fontFamily: {
