@@ -16,7 +16,7 @@ const FIlterByRegion = () => {
   ]
 
   return (
-    <section className="mt-10">
+    <section className="mt-10 relative">
       <div className="flex items-center justify-between gap-5 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white"
         onClick={() => setOpen(!open)}
       >
@@ -26,9 +26,9 @@ const FIlterByRegion = () => {
         </span>
       </div>
 
-      <div className={`${open ? "block" : "hidden"} mt-2 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white`}
+      <div className={`${open ? "block" : "hidden"} mt-2 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white absolute`}
       >
-        <ul className="flex flex-col gap-2 ">
+        <ul className="flex flex-col gap-2">
           {regions.map(region => (
             <li key={region.name}>{region.name}</li>
           ))}
