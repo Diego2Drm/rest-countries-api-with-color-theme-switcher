@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type CountryName = {
   common: string
@@ -23,21 +24,21 @@ const Card = () => {
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then(response => response.json())
-      .then(data => { setCountries(data), console.log(data) })
+      .then(data => { setCountries(data) })
   }, [])
 
-  const deatils = (name: string) => {
-    console.log(name);
-    
-  }
+  // const deatils = (name: string) => {
+  //   console.log(name);
+  //   , console.log(data)
+
+  // }
   return (
     <section className="mt-10 px-5">
       {
         countries.map((country, index) => (
-          <article key={index} className="bg-white shadow-sm shadow-gray-300 rounded-md overflow-hidden mb-5"
-          onClick={() => deatils(country.name.common)}
+          <Link to={`/details/${country.name.common}`} key={index} className="bg-white shadow-sm shadow-gray-300 rounded-md overflow-hidden mb-5"
           >
-            <img src={country.flags.png} alt={country.name.common} className="w-full h-[150px]"/>
+            <img src={country.flags.png} alt={country.name.common} className="w-full h-[150px]" />
             <div className="p-3 mb-10">
               <h3 className="font-extrabold mb-5 text-lg">{country.name.common}</h3>
               <p className="text-sm">
@@ -50,7 +51,7 @@ const Card = () => {
                 <span className="font-bold">Capital:</span> {country.capital}
               </p>
             </div>
-          </article>
+          </Link>
         ))
       }
     </section>
