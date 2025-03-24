@@ -1,4 +1,4 @@
-import { act, useEffect, useState } from "react";
+import React, { act, useEffect, useState } from "react";
 import { Card } from "../Card"
 import { FIlterByRegion } from "../FilterByRegion"
 import { InputSerach } from "..//InputSearch"
@@ -38,6 +38,7 @@ const Home = () => {
   const [filterCountries, setFilterCountries] = useState<Country[]>([])
   const [selectedRegion, setSelectedRegion] = useState<string>('')
   const [activeFIlteredCountries, setActiveFilteredCoountries] = useState<string>('All')
+  const [inputText, setInputText] = useState<string>('')
 
   const getRegionName = (region: string) => {
     setSelectedRegion(region)
@@ -66,10 +67,32 @@ const Home = () => {
     }
   }
 
+  const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log(inputText);
+
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value
+    setInputText(value)
+
+    // Lógica de filtrado dinámica basada en el texto ingresado
+    if (value.trim() === "") {
+      setFilterCountries([]); // Si el input está vacío, restablece los filtros
+    } else {
+      const filtered = countries.filter((country) =>
+        country.name.common.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilterCountries(filtered); // Actualiza la lista filtrada
+    }
+
+  }
+
   return (
     <>
-      <InputSerach />
-      <FIlterByRegion regions={regions} getRegionName={getRegionName} activeCountries={activeFIlteredCountries}/>
+      <InputSerach handleSubmit={HandleSubmit} handleChange={handleChange} inputText={inputText} />
+      <FIlterByRegion regions={regions} getRegionName={getRegionName} activeCountries={activeFIlteredCountries} />
       <Card countries={filterCountries.length > 0 ? filterCountries : countries} />
     </>
   )
