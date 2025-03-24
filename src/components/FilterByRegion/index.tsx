@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Region } from "../Home";
 
+type RegionProps = {
+  regions: Region[]
+  getRegionName: (region: string) => void
+  activeCountries: string
+}
 
-
-const FIlterByRegion = () => {
+const FIlterByRegion = ({ regions, getRegionName, activeCountries }: RegionProps) => {
 
   const [open, setOpen] = useState(false);
-
-  const regions = [
-    { name: 'Africa' },
-    { name: 'America' },
-    { name: 'Asia' },
-    { name: 'Europe' },
-    { name: 'Oceania' }
-  ]
 
   return (
     <section className="mt-10 relative">
@@ -30,7 +27,10 @@ const FIlterByRegion = () => {
       >
         <ul className="flex flex-col gap-2">
           {regions.map(region => (
-            <li key={region.name}>{region.name}</li>
+            <li key={region.name}
+              onClick={() => getRegionName(region.name)}
+              className={activeCountries == region.name ? 'text-red-700 font-semibold' : 'text-black font-medium'}
+            >{region.name}</li>
           ))}
         </ul>
       </div>

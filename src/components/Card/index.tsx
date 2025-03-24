@@ -1,37 +1,12 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Country } from "../Home";
 
-type CountryName = {
-  common: string
-  official: string
-}
-type CountryFlag = {
-  png: string
-  svg: string
+type CountryProps = {
+  countries: Country[]
 }
 
-interface Country {
-  flags: CountryFlag
-  name: CountryName
-  population: number
-  region: string
-  capital: string
-}
+const Card = ({countries}: CountryProps) => {
 
-const Card = () => {
-  const [countries, setCountries] = useState<Country[]>([])
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
-      .then(data => { setCountries(data) })
-  }, [])
-
-  // const deatils = (name: string) => {
-  //   console.log(name);
-  //   , console.log(data)
-
-  // }
   return (
     <section className="mt-10 px-5">
       {

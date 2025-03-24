@@ -31,7 +31,7 @@ type CountryLanguages = {
 
 
 
-export interface Country {
+interface Country {
   flags: CountryFlag
   name: CountryName
   population: number
