@@ -23,7 +23,7 @@ const FIlterByRegion = ({ regions, getRegionName, activeCountries }: RegionProps
         </span>
       </div>
 
-      <div className={`${open ? "block" : "hidden"} mt-2 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white absolute`}
+      <div className={`${open ? "block" : "hidden"} mt-2 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white absolute z-10`}
       >
         <ul className="flex flex-col gap-2">
           {regions.map(region => (
