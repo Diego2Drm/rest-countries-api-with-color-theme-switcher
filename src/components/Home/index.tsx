@@ -36,7 +36,7 @@ const Home = () => {
 
   const [countries, setCountries] = useState<Country[]>([])
   const [filterCountries, setFilterCountries] = useState<Country[]>([])
-  const [selectedRegion, setSelectedRegion] = useState<string>('')
+  const [, setSelectedRegion] = useState<string>('')
   const [activeFIlteredCountries, setActiveFilteredCoountries] = useState<string>('All')
   const [inputText, setInputText] = useState<string>('')
 
