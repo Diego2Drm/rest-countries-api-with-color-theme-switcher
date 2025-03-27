@@ -9,7 +9,7 @@ export default {
       colors: {
         // Dark Mode
         "Dark-Blue": "#2b3945", /*(Dark Mode Elements)*/
-        "Very-Dark-Blue": "#202c37", /*(Dark Mode Background)*/
+        "Very-Dark-Blue-bg": "#202c37", /*(Dark Mode Background)*/
         //Light Mode
         "Very-Dark-Blue": "#111517", /*(Light Mode Text)*/
         "Dark-Gray": "#858585", /*(Light Mode Input)*/
@@ -22,5 +22,6 @@ export default {
     },
   },
   plugins: [],
+  darkMode: 'selector',
 }
 

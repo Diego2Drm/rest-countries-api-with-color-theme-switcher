@@ -14,8 +14,8 @@ const Card = ({ countries }: CountryProps) => {
       <div className="md:flex md:flex-wrap md:justify-between">
         {
           countries.map((country, index) => (
-            <div key={index} className="bg-white shadow-sm shadow-gray-400 rounded-md overflow-hidden mb-5">
-              <Link to={`/details/${country.name.common}`} className="w-full bg-red-100">
+            <div key={index} className="bg-white shadow-sm shadow-gray-400 rounded-md overflow-hidden mb-5 dark:bg-Dark-Blue dark:shadow-black">
+              <Link to={`/details/${country.name.common}`} className="w-full">
                 <div className="w-[340px] md:w-[300px]">
                   <LazyLoadImage src={country.flags.png} alt={country.name.common}
                     className="h-[200px] md:h-[150px]"
@@ -26,15 +26,18 @@ const Card = ({ countries }: CountryProps) => {
                   />
                 </div>
                 <div className="p-3 pl-10 mb-10 mt-10 md:mt-0">
-                  <h3 className="font-extrabold mb-3 text-lg">{country.name.common}</h3>
-                  <p className="text-sm">
-                    <span className="font-bold">Population:</span> {country.population}
+                  <h3 className="font-extrabold mb-3 text-lg dark:text-white">{country.name.common}</h3>
+                  <p className="info-primary">
+                    <span>Population:</span>
+                    <span>{country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
                   </p>
-                  <p className="text-sm">
-                    <span className="font-bold">Region:</span> {country.region}
+                  <p className="info-primary">
+                    <span>Region:</span>
+                    <span>{country.region}</span>
                   </p>
-                  <p className="text-sm">
-                    <span className="font-bold">Capital:</span> {country.capital}
+                  <p className="info-primary">
+                    <span>Capital:</span>
+                    <span>{country.capital}</span>
                   </p>
                 </div>
               </Link>

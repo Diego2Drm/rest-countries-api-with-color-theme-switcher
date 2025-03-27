@@ -81,51 +81,54 @@ const Details = () => {
                 <img src={country.flags.png} alt={country.name.common} className="h-52 mb-10 md:w-1/2 md:h-96 md:mb-0" />
 
                 <div className="md:w-1/2 md:flex md:flex-col md:justify-center md:pr-10 md:gap-5 md:pl-28">
-                  <h3 className="text-xl font-bold md:text-2xl md:font-extrabold">{country.name.common}</h3>
+                  <h3 className="text-xl font-bold md:text-2xl md:font-extrabold dark:text-white">{country.name.common}</h3>
 
                   <div className="md:flex md:justify-between">
                     <div className="space-y-5 md:space-y-2">
-                      <p>
-                        <span className="textBold">Native Name: </span>
-                        {nativeNameCommon}</p>
-                      <p>
-                        <span className="textBold">Population: </span>
-                        {country.population}
+                      <p className='text-Detail'>
+                        <span>Native Name: </span>
+                        <span> {nativeNameCommon}</span>
                       </p>
-                      <p>
-                        <span className="textBold">Region: </span>
-                        {country.region}
+                      <p className='text-Detail'>
+                        <span>Population: </span>
+                        <span>{country.population}</span>
                       </p>
-                      <p>
-                        <span className="textBold">Sub Region </span>
-                        {country.subregion}
+                      <p className='text-Detail'>
+                        <span>Region: </span>
+                        <span>{country.region}</span>
                       </p>
-                      <p>
-                        <span className="textBold">Capital: </span>
-                        {country.capital}
+                      <p className='text-Detail'>
+                        <span>Sub Region </span>
+                        <span>{country.subregion}</span>
+                      </p>
+                      <p className='text-Detail'>
+                        <span>Capital: </span>
+                        <span>{country.capital}</span>
                       </p>
                     </div>
                     <div className="space-y-5">
-                      <p>
-                        <span className="textBold">Top Level Domain: </span>
-                        {country.tld}
+                      <p className='text-Detail'>
+                        <span>Top Level Domain: </span>
+                        <span>{country.tld}</span>
                       </p>
-                      <p>
-                        <span className="textBold">Currencies: </span>
-                        {currenciesName}
+                      <p className='text-Detail'>
+                        <span>Currencies: </span>
+                        <span>{currenciesName}</span>
                       </p>
-                      <p>
-                        <span className="textBold">Languages: </span>
-                        {languagesName}
+                      <p className='text-Detail'>
+                        <span>Languages: </span>
+                        <span>{languagesName}</span>
                       </p>
                     </div>
                   </div>
 
-                  <ul className="flex flex-col flex-wrap md:pt-8 md:flex-row md:items-center md:gap-5">
-                    <span className="textBold">Border Countries: </span>
+                  <ul className="flex flex-col flex-wrap md:pt-8 md className='text-Detail':flex-row md:items-center md:gap-5">
+                    <span className="dark:text-white">Border Countries: </span>
                     <div className="flex flex-wrap gap-2 mt-5 md:mt-0">
                       {country.borders?.map((border, i) => (
-                        <li key={i} className="border-2 border-gray-300  px-2 rounded-md md:px-4">{border}
+                        <li key={i}
+                          className="border-2 border-gray-300  px-2 rounded-md md:px-4 dark:bg-Dark-Blue dark:border-black dark:text-white">
+                          {border}
                         </li>
                       ))}
                     </div>

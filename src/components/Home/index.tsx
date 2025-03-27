@@ -1,4 +1,4 @@
-import React, { act, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "../Card"
 import { FIlterByRegion } from "../FilterByRegion"
 import { InputSerach } from "..//InputSearch"
@@ -69,8 +69,6 @@ const Home = () => {
 
   const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(inputText);
-
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

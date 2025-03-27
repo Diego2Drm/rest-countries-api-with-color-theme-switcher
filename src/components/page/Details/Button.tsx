@@ -8,7 +8,7 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({ goBack }) => {
   return (
     <button
-      className="flex justify-center items-center gap-2 border-2 border-gray-300 shadow-md shadow-gray-400 w-28 p-2 rounded-md"
+      className="flex justify-center items-center gap-2 border-2 border-gray-300 shadow-md shadow-gray-400 w-28 p-2 rounded-md dark:bg-Dark-Blue dark:shadow-black dark:border-Dark-Blue dark:text-white"
       onClick={goBack}>
       <span><FaArrowLeft /></span>
       Back
