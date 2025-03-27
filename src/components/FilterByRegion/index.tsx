@@ -13,7 +13,7 @@ const FIlterByRegion = ({ regions, getRegionName, activeCountries }: RegionProps
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="mt-10 relative">
+    <section className="mt-10 relative md:mt-0">
       <div className="flex items-center justify-between gap-5 w-52 shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 bg-white"
         onClick={() => setOpen(!open)}
       >

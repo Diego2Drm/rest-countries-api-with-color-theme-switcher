@@ -9,7 +9,7 @@ type InputProps = {
 
 const InputSerach: React.FC<InputProps> = ({ handleSubmit, handleChange, inputText }) => {
   return (
-    <section className='w-full shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 pl-16 relative'>
+    <section className='w-full shadow-sm shadow-gray-400 border-2 border-gray-50 rounded-md p-4 pl-16 relative md:w-96'>
       <form action="" onSubmit={handleSubmit}>
         <span className='absolute top-5 left-5 w-5 h-5 text-gray-400'>
           <FaSearch />

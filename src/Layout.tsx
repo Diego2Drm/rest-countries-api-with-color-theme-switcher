@@ -6,7 +6,7 @@ interface LayputProps {
 
 export const Layout = ({ children }: LayputProps) => {
   return (
-    <main className="pt-20">
+    <main className="pt-20 md:px-10">
       <Header />
       {children}
     </main>

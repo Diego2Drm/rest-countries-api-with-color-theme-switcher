@@ -91,8 +91,10 @@ const Home = () => {
 
   return (
     <>
-      <InputSerach handleSubmit={HandleSubmit} handleChange={handleChange} inputText={inputText} />
-      <FIlterByRegion regions={regions} getRegionName={getRegionName} activeCountries={activeFIlteredCountries} />
+      <div className="md:flex md:items-center md:justify-between">
+        <InputSerach handleSubmit={HandleSubmit} handleChange={handleChange} inputText={inputText} />
+        <FIlterByRegion regions={regions} getRegionName={getRegionName} activeCountries={activeFIlteredCountries} />
+      </div>
       <Card countries={filterCountries.length > 0 ? filterCountries : countries} />
     </>
   )

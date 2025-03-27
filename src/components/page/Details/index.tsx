@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaArrowLeft } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
+import { Button } from './Button';
 
 type CountryFlag = {
   png: string
@@ -28,8 +28,6 @@ type CountryCurrencies = {
 type CountryLanguages = {
   [key: string]: string
 }
-
-
 
 interface Country {
   flags: CountryFlag
@@ -63,12 +61,7 @@ const Details = () => {
 
   return (
     <section className="mt-5">
-      <button
-        className="flex justify-center items-center gap-2 border-2 border-gray-300 shadow-md shadow-gray-400 w-28 p-2 rounded-md"
-        onClick={() => goBack()}>
-        <span><FaArrowLeft /></span>
-        Back
-      </button>
+      <Button goBack={goBack} />
 
       {
         country.map((country, i) => {
@@ -83,60 +76,68 @@ const Details = () => {
           const languagesName = firstKeyLanguages.map((key) => languages[key]).join(', ');
 
           return (
-            <article key={i} className="space-y-8 mt-10 mb-5">
-              <img src={country.flags.png} alt={country.name.common} className="h-52" />
-              <div className="space-y-5">
-                <h3 className="text-xl font-bold">{country.name.common}</h3>
-                <p>
-                  <span className="textBold">Native Name: </span>
-                  {nativeNameCommon}</p>
-                <p>
-                  <span className="textBold">Population: </span>
-                  {country.population}
-                </p>
-                <p>
-                  <span className="textBold">Region: </span>
-                  {country.region}
-                </p>
-                <p>
-                  <span className="textBold">Sub Region </span>
-                  {country.subregion}
-                </p>
-                <p>
-                  <span className="textBold">Capital: </span>
-                  {country.capital}
-                </p>
-              </div>
-              <div className="space-y-5">
-                <p>
-                  <span className="textBold">Top Level Domain: </span>
-                  {country.tld}
-                </p>
-                <p>
-                  <span className="textBold">Currencies: </span>
-                  {currenciesName}
-                </p>
-                <p>
-                  <span className="textBold">Languages: </span>
-                  {languagesName}
-                </p>
-              </div>
-              <div>
-                <ul className="flex flex-col flex-wrap">
-                  <span className="textBold">Border Countries: </span>
-                  <div className="flex flex-wrap gap-2 mt-5">
-                    {country.borders?.map((border, i) => (
-                      <li key={i} className="border-2 border-gray-300  px-2 rounded-md">{border}
-                      </li>
-                    ))}
-                  </div>
-                </ul>
-              </div>
+            <article key={i} className="space-y-8 mt-10 mb-5 w-full">
+              <div className="md:flex">
+                <img src={country.flags.png} alt={country.name.common} className="h-52 mb-10 md:w-1/2 md:h-96 md:mb-0" />
 
+                <div className="md:w-1/2 md:flex md:flex-col md:justify-center md:pr-10 md:gap-5 md:pl-28">
+                  <h3 className="text-xl font-bold md:text-2xl md:font-extrabold">{country.name.common}</h3>
+
+                  <div className="md:flex md:justify-between">
+                    <div className="space-y-5 md:space-y-2">
+                      <p>
+                        <span className="textBold">Native Name: </span>
+                        {nativeNameCommon}</p>
+                      <p>
+                        <span className="textBold">Population: </span>
+                        {country.population}
+                      </p>
+                      <p>
+                        <span className="textBold">Region: </span>
+                        {country.region}
+                      </p>
+                      <p>
+                        <span className="textBold">Sub Region </span>
+                        {country.subregion}
+                      </p>
+                      <p>
+                        <span className="textBold">Capital: </span>
+                        {country.capital}
+                      </p>
+                    </div>
+                    <div className="space-y-5">
+                      <p>
+                        <span className="textBold">Top Level Domain: </span>
+                        {country.tld}
+                      </p>
+                      <p>
+                        <span className="textBold">Currencies: </span>
+                        {currenciesName}
+                      </p>
+                      <p>
+                        <span className="textBold">Languages: </span>
+                        {languagesName}
+                      </p>
+                    </div>
+                  </div>
+
+                  <ul className="flex flex-col flex-wrap md:pt-8 md:flex-row md:items-center md:gap-5">
+                    <span className="textBold">Border Countries: </span>
+                    <div className="flex flex-wrap gap-2 mt-5 md:mt-0">
+                      {country.borders?.map((border, i) => (
+                        <li key={i} className="border-2 border-gray-300  px-2 rounded-md md:px-4">{border}
+                        </li>
+                      ))}
+                    </div>
+                  </ul>
+
+                </div>
+              </div>
             </article>
           )
         })
       }
+
     </section >
   )
 }
